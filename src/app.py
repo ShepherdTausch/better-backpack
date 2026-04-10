@@ -1,11 +1,32 @@
 import customtkinter as ctk
 from logic import Logic
 
+class Button(ctk.CTkButton):
+    def __init__(self, *args, **kwargs):
+        super().__init__(
+            *args, 
+            **kwargs, 
+            fg_color="#0076ff", 
+            hover_color="#278aff",
+            corner_radius=32,
+            cursor="hand2"
+        )
+
 class App(ctk.CTk):
-    def __init__(self):
+    def __init__(self, logic):
         super().__init__()
+        self.logic = logic
         self.title = "Better Backpack"
         self.geometry("800x500")
+        self.grid_columnconfigure(0, weight=1)
 
-app = App()
-app.mainloop()
+        self.button = Button(self, text="Choose File", command=self.logic.open_file)
+        self.button.grid(row=0, column=0, padx=20, pady=20)
+
+def main():
+    logic = Logic()
+    app = App(logic)
+    app.mainloop()
+
+if __name__ == "__main__":
+    main()
