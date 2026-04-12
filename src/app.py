@@ -1,22 +1,12 @@
 import customtkinter as ctk
 from logic import Logic
-
-class Button(ctk.CTkButton):
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            *args, 
-            **kwargs, 
-            fg_color="#0076ff", 
-            hover_color="#278aff",
-            corner_radius=32,
-            cursor="hand2"
-        )
+from defaults import *
 
 class App(ctk.CTk):
     def __init__(self, logic):
         super().__init__()
         self.logic = logic
-        self.title = "Better Backpack"
+        self.title("Better Backpack")
         self.geometry("800x500")
         self.grid_columnconfigure(0, weight=1)
 

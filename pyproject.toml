@@ -1,0 +1,10 @@
+[project]
+name = "better-backpack"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "crossfiledialog>=1.1.0",
+    "customtkinter>=5.2.2",
+]
